@@ -1,0 +1,505 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   MGM PACKAGING — "Film" design system
+   Cool near-white ground · white surfaces · brand navy #022F73 · lime #85B53D
+   The ground is deliberately NOT pure white: the product is translucent
+   white film, and it needs something to be white against.
+   ========================================================================== */
+
+:root {
+  --ground:      #F4F6FA;
+  --ground-2:    #EBEFF6;
+  --surface:     #FFFFFF;
+  --surface-2:   #F8FAFC;
+
+  --ink:         #0B1524;
+  --ink-2:       #46536B;
+  --ink-3:       #78849A;
+  --ink-4:       #9AA5B7;
+
+  --hairline:    #DDE3EC;
+  --hairline-2:  #C4CFDE;
+
+  --navy:        #022F73;
+  --navy-soft:   #0A4AA8;
+  --navy-deep:   #011E4C;
+  --navy-wash:   #E7EEFA;
+  --navy-wash-2: #D6E3F6;
+
+  --lime:        #85B53D;
+  --lime-ink:    #5C871F;
+  --lime-deep:   #4A6E18;
+  --lime-wash:   #EFF6E2;
+
+  --on-dark:     #EAF1FC;
+  --on-dark-2:   #A9C2E8;
+  --on-dark-3:   #6E8CBC;
+
+  --ok:          #2F7D46;
+  --ok-wash:     #E9F5EC;
+  --warn:        #8A5A12;
+  --warn-wash:   #FBF3E2;
+  --bad:         #A3312339;
+
+  --max:         1240px;
+  --gut:         clamp(1.15rem, 4vw, 2.75rem);
+  --measure:     68ch;
+
+  --r-sm: 4px;
+  --r:    8px;
+  --r-lg: 14px;
+
+  --sh-1: 0 1px 2px rgba(11,21,36,.05);
+  --sh-2: 0 1px 2px rgba(11,21,36,.05), 0 10px 26px -18px rgba(11,21,36,.28);
+  --sh-3: 0 2px 6px rgba(11,21,36,.06), 0 26px 56px -30px rgba(11,21,36,.42);
+
+  --ease:     cubic-bezier(.22,.61,.36,1);
+  --ease-out: cubic-bezier(.16,1,.3,1);
+
+  --header-h: 74px;
+}
+
+@theme inline {
+  --color-ground: var(--ground);
+  --color-ground-2: var(--ground-2);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-ink-4: var(--ink-4);
+  --color-hairline: var(--hairline);
+  --color-hairline-2: var(--hairline-2);
+  --color-navy: var(--navy);
+  --color-navy-soft: var(--navy-soft);
+  --color-navy-deep: var(--navy-deep);
+  --color-navy-wash: var(--navy-wash);
+  --color-navy-wash-2: var(--navy-wash-2);
+  --color-lime: var(--lime);
+  --color-lime-ink: var(--lime-ink);
+  --color-lime-deep: var(--lime-deep);
+  --color-lime-wash: var(--lime-wash);
+  --color-on-dark: var(--on-dark);
+  --color-on-dark-2: var(--on-dark-2);
+  --color-on-dark-3: var(--on-dark-3);
+  --color-ok: var(--ok);
+  --color-ok-wash: var(--ok-wash);
+  --color-warn: var(--warn);
+  --color-warn-wash: var(--warn-wash);
+  --font-display: var(--font-archivo), "Helvetica Neue", Arial, sans-serif;
+  --font-sans: var(--font-plex-sans), "Segoe UI", system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, Menlo, monospace;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-h) + 1rem);
+}
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+
+body {
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--font-plex-sans), "Segoe UI", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+::selection { background: var(--navy); color: #fff; }
+
+:focus-visible {
+  outline: 2px solid var(--lime-ink);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* ————————————————— typography ————————————————— */
+
+.display {
+  font-family: var(--font-archivo), "Helvetica Neue", Arial, sans-serif;
+  font-weight: 800;
+  letter-spacing: -.035em;
+  line-height: .99;
+  text-wrap: balance;
+}
+.display-md {
+  font-family: var(--font-archivo), "Helvetica Neue", Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: -.028em;
+  line-height: 1.06;
+  text-wrap: balance;
+}
+.display-sm {
+  font-family: var(--font-archivo), "Helvetica Neue", Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: -.018em;
+  line-height: 1.18;
+  text-wrap: balance;
+}
+
+.spec {
+  font-family: var(--font-plex-mono), ui-monospace, Menlo, monospace;
+  font-size: .69rem;
+  font-weight: 500;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.spec--lime { color: var(--lime-ink); }
+.spec--navy { color: var(--navy); }
+.spec--ondark { color: var(--on-dark-2); }
+
+.tnum { font-variant-numeric: tabular-nums; }
+.measure { max-width: var(--measure); }
+
+/* ————————————————— the seal line —————————————————
+   A heat-seal weld: navy rule interrupted by a lime segment.
+   The signature divider of the whole site.                        */
+
+.seal {
+  height: 2px;
+  border: 0;
+  background: linear-gradient(to right,
+    var(--navy) 0 12%,
+    var(--lime) 12% 19%,
+    var(--navy) 19% 100%);
+  opacity: .5;
+}
+.seal--faint { opacity: .2; }
+.seal--ondark {
+  background: linear-gradient(to right,
+    var(--on-dark-3) 0 12%,
+    var(--lime) 12% 19%,
+    var(--on-dark-3) 19% 100%);
+  opacity: .7;
+}
+
+/* ————————————————— layout ————————————————— */
+
+.wrap {
+  max-width: var(--max);
+  margin-inline: auto;
+  padding-inline: var(--gut);
+}
+.wrap-narrow {
+  max-width: 900px;
+  margin-inline: auto;
+  padding-inline: var(--gut);
+}
+
+.section { padding-block: clamp(3.25rem, 7vw, 6rem); }
+.section--tight { padding-block: clamp(2.25rem, 5vw, 3.75rem); }
+
+/* ————————————————— buttons ————————————————— */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  font-family: var(--font-plex-mono), monospace;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: .82rem 1.3rem;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--hairline-2);
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+  transition: background .22s var(--ease), color .22s var(--ease),
+              border-color .22s var(--ease), transform .22s var(--ease);
+  text-align: center;
+  line-height: 1.2;
+}
+.btn:hover { border-color: var(--navy); color: var(--navy); }
+
+.btn--primary {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: #fff;
+}
+.btn--primary:hover {
+  background: var(--navy-deep);
+  border-color: var(--navy-deep);
+  color: #fff;
+}
+
+.btn--lime {
+  background: var(--lime);
+  border-color: var(--lime);
+  color: #12240A;
+}
+.btn--lime:hover { background: var(--lime-ink); border-color: var(--lime-ink); color: #fff; }
+
+.btn--ghost-dark {
+  background: transparent;
+  border-color: rgba(255,255,255,.32);
+  color: #fff;
+}
+.btn--ghost-dark:hover { background: rgba(255,255,255,.12); border-color: #fff; color: #fff; }
+
+.btn:disabled { opacity: .45; cursor: not-allowed; }
+
+/* ————————————————— surfaces ————————————————— */
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: var(--r);
+  transition: border-color .25s var(--ease), transform .35s var(--ease-out),
+              box-shadow .35s var(--ease-out);
+}
+.card--hover:hover {
+  border-color: var(--hairline-2);
+  transform: translateY(-3px);
+  box-shadow: var(--sh-2);
+}
+
+.dark-block {
+  background: var(--navy);
+  color: var(--on-dark);
+}
+.dark-block--deep { background: var(--navy-deep); }
+
+/* stacked translucent film panels — the way polybags look through each other */
+.film-stack { position: relative; z-index: 0; }
+.film-stack > .film-stack-inner {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--hairline-2);
+  border-radius: var(--r);
+  box-shadow: var(--sh-2);
+}
+.film-stack::before,
+.film-stack::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--hairline);
+  border-radius: var(--r);
+  background: color-mix(in srgb, var(--surface) 60%, transparent);
+  z-index: -1;
+}
+.film-stack::before { transform: translate(7px, 7px); opacity: .85; }
+.film-stack::after  { transform: translate(14px, 14px); opacity: .5; }
+
+/* blueprint-ish micron grid for section backdrops */
+.micron-grid {
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--navy) 6%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--navy) 6%, transparent) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* gauge ticks — micron measurement motif */
+.tick-strip {
+  height: 12px;
+  background-image:
+    repeating-linear-gradient(to right, var(--hairline-2) 0 1px, transparent 1px 9px),
+    repeating-linear-gradient(to right, var(--navy) 0 1px, transparent 1px 45px);
+  background-size: 100% 6px, 100% 12px;
+  background-position: bottom, bottom;
+  background-repeat: repeat-x;
+  opacity: .55;
+}
+
+/* ————————————————— tables ————————————————— */
+
+.tablewrap {
+  overflow-x: auto;
+  border: 1px solid var(--hairline);
+  border-radius: var(--r);
+  background: var(--surface);
+  -webkit-overflow-scrolling: touch;
+}
+.spec-table { border-collapse: collapse; width: 100%; font-size: .875rem; }
+.spec-table th, .spec-table td {
+  text-align: left;
+  padding: .68rem .9rem;
+  border-bottom: 1px solid var(--hairline);
+  vertical-align: top;
+}
+.spec-table thead th {
+  font-family: var(--font-plex-mono), monospace;
+  font-size: .63rem;
+  font-weight: 600;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--hairline-2);
+  white-space: nowrap;
+}
+.spec-table tbody tr:last-child td { border-bottom: 0; }
+.spec-table td.num { font-family: var(--font-plex-mono), monospace; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+/* ————————————————— forms ————————————————— */
+
+.field { display: grid; gap: .38rem; }
+.label {
+  font-family: var(--font-plex-mono), monospace;
+  font-size: .65rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.input, .select, .textarea {
+  width: 100%;
+  font-family: inherit;
+  font-size: .95rem;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--hairline-2);
+  border-radius: var(--r-sm);
+  padding: .66rem .8rem;
+  transition: border-color .2s var(--ease), box-shadow .2s var(--ease);
+  appearance: none;
+}
+.input:focus, .select:focus, .textarea:focus {
+  outline: none;
+  border-color: var(--navy);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--navy) 13%, transparent);
+}
+.input::placeholder, .textarea::placeholder { color: var(--ink-4); }
+.select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5 6 6.5 11 1.5' fill='none' stroke='%2378849A' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right .75rem center;
+  background-size: 11px;
+  padding-right: 2.1rem;
+}
+.textarea { min-height: 108px; resize: vertical; }
+
+/* ————————————————— chips / tags ————————————————— */
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  font-family: var(--font-plex-mono), monospace;
+  font-size: .61rem;
+  font-weight: 600;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+  padding: .26rem .5rem;
+  border-radius: 3px;
+  background: var(--navy-wash);
+  color: var(--navy);
+  white-space: nowrap;
+}
+.tag--lime { background: var(--lime-wash); color: var(--lime-ink); }
+.tag--ok   { background: var(--ok-wash); color: var(--ok); }
+.tag--warn { background: var(--warn-wash); color: var(--warn); }
+.tag--ondark { background: rgba(255,255,255,.14); color: var(--on-dark); }
+
+/* ————————————————— reveal ————————————————— */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .7s var(--ease-out), transform .7s var(--ease-out);
+}
+.reveal.is-in { opacity: 1; transform: none; }
+
+/* staggered children */
+.reveal-group > * { opacity: 0; transform: translateY(16px); }
+.reveal-group.is-in > * {
+  animation: riseIn .7s var(--ease-out) forwards;
+}
+.reveal-group.is-in > *:nth-child(1) { animation-delay: .00s; }
+.reveal-group.is-in > *:nth-child(2) { animation-delay: .06s; }
+.reveal-group.is-in > *:nth-child(3) { animation-delay: .12s; }
+.reveal-group.is-in > *:nth-child(4) { animation-delay: .18s; }
+.reveal-group.is-in > *:nth-child(5) { animation-delay: .24s; }
+.reveal-group.is-in > *:nth-child(6) { animation-delay: .30s; }
+.reveal-group.is-in > *:nth-child(7) { animation-delay: .36s; }
+.reveal-group.is-in > *:nth-child(8) { animation-delay: .42s; }
+
+@keyframes riseIn { to { opacity: 1; transform: none; } }
+
+/* char-level headline reveal */
+.char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(.5em);
+  transition: opacity .5s var(--ease-out), transform .5s var(--ease-out);
+}
+.is-in .char { opacity: 1; transform: none; }
+
+/* marquee */
+.marquee { overflow: hidden; }
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 46s linear infinite;
+}
+.marquee:hover .marquee-track { animation-play-state: paused; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal, .reveal-group > * { opacity: 1 !important; transform: none !important; animation: none !important; transition: none !important; }
+  .char { opacity: 1 !important; transform: none !important; }
+  .marquee-track { animation: none; }
+  *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+}
+
+/* utility */
+.link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  transition: background-size .3s var(--ease);
+}
+.link-underline:hover { background-size: 100% 1px; }
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
+
+/* ————————————————— print ————————————————— */
+
+@media print {
+  header, footer, .marquee, [aria-label="Quote list"],
+  .btn, nav[aria-label="Breadcrumb"] { display: none !important; }
+  body { background: #fff; font-size: 11pt; }
+  .section { padding-block: 1rem; }
+  .card, .tablewrap { border-color: #bbb; box-shadow: none; break-inside: avoid; }
+  .spec-table { font-size: 9.5pt; }
+  .reveal, .reveal-group > * { opacity: 1 !important; transform: none !important; }
+  a[href]::after { content: ""; }
+  .wrap { max-width: 100%; padding-inline: 0; }
+}
+
+/* ————————————————— responsive guards —————————————————
+   Grid and flex tracks default to min-content, so a long unbreakable
+   string can push a track wider than its container. These stop that
+   without having to annotate every layout.                        */
+
+.spec { overflow-wrap: break-word; }
+
+.wrap > *,
+.wrap-narrow > *,
+.card,
+.film-stack,
+.film-stack-inner,
+.dark-block { min-width: 0; }
+
+/* any grid or flex child inside a container is allowed to shrink */
+.grid > *, [class*="grid-cols"] > * { min-width: 0; }
+
+/* long values in spec lists wrap rather than stretch their track */
+dd, .tag { overflow-wrap: break-word; }
+
+/* leave room for the mobile action bar so it never covers the footer */
+@media (max-width: 639px) {
+  body { padding-bottom: 54px; }
+}
