@@ -15,15 +15,6 @@ function hasWebGL() {
   }
 }
 
-const TINTS: Record<string, { tint: string; opaque: number; gusset: number }> = {
-  plain: { tint: "#DCE6F2", opaque: 0, gusset: 0 },
-  printed: { tint: "#E7EDF6", opaque: 0.15, gusset: 0 },
-  "zip-lock": { tint: "#DCE6F2", opaque: 0, gusset: 0 },
-  gusset: { tint: "#DCE6F2", opaque: 0, gusset: 0.55 },
-  "custom-sizes": { tint: "#DCE6F2", opaque: 0.05, gusset: 0.2 },
-  coloured: { tint: "#2F5FA8", opaque: 0.9, gusset: 0 },
-};
-
 export default function BagAnatomy({
   slug,
   image,
@@ -58,8 +49,6 @@ export default function BagAnatomy({
     return () => window.clearTimeout(t);
   }, [gl]);
 
-  const cfg = TINTS[slug] ?? TINTS.plain;
-
   return (
     <div className="grid gap-6 lg:grid-cols-12 lg:gap-10">
       {/* the bag */}
@@ -69,12 +58,12 @@ export default function BagAnatomy({
           className="relative aspect-square overflow-hidden rounded-[var(--r)] border border-hairline"
           style={{
             background:
-              "radial-gradient(120% 90% at 50% 15%, #F9FBFE 0%, #E6ECF5 55%, #D5DEEC 100%)",
+              "radial-gradient(125% 95% at 50% 12%, #F2F6FC 0%, #DDE5F1 52%, #C2CDDF 100%)",
           }}
         >
           {gl === true ? (
             <>
-              <BagScene {...cfg} />
+              <BagScene preset={slug} />
               <p className="spec pointer-events-none absolute bottom-3 left-0 right-0 text-center">
                 Drag to rotate
               </p>
