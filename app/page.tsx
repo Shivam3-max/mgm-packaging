@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import FilmHero from "@/components/FilmHero";
 import Marquee from "@/components/Marquee";
+import VideoBlock from "@/components/VideoBlock";
 import Reveal from "@/components/Reveal";
 import Seal from "@/components/Seal";
 import Counter from "@/components/Counter";
@@ -9,7 +10,7 @@ import { ProductCard, IndustryCard, SectionHead } from "@/components/Cards";
 import { products } from "@/data/products";
 import { industries } from "@/data/industries";
 import { PROCESS, DOWNGAUGE_NOTE } from "@/data/content";
-import { SITE, BBN } from "@/data/company";
+import { SITE, BBN, VIDEO } from "@/data/company";
 
 const TOOLS = [
   { href: "/tools/calculator", name: "Bag weight & cost", desc: "Size and micron in, bags per kilo and cost per bag out. The conversion nobody makes easy.", flag: "Most used" },
@@ -92,6 +93,41 @@ export default function Home() {
       </section>
 
       <Marquee />
+
+      {/* ═══════════════════════ THE FILM LINE ═══════════════════════ */}
+      <section className="section--tight pt-14 md:pt-20">
+        <div className="wrap grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
+          <Reveal className="lg:col-span-7">
+            <VideoBlock
+              src={VIDEO.src || undefined}
+              poster={VIDEO.poster || undefined}
+              label={VIDEO.label}
+              caption={VIDEO.caption}
+            />
+          </Reveal>
+
+          <Reveal className="lg:col-span-5" delay={120}>
+            <p className="spec spec--lime">See it running</p>
+            <h2 className="display-md mt-3 text-[clamp(1.6rem,3.2vw,2.3rem)]">
+              A supplier you can watch work.
+            </h2>
+            <p className="measure mt-4 text-[1rem] leading-relaxed text-ink-2">
+              Most packaging is bought from a photograph and a rate. We would rather
+              you saw the line — the granule going in, the film coming off the die,
+              the seal being made. It tells you more about a supplier than any
+              brochure can.
+            </p>
+            <p className="measure mt-4 text-[1rem] leading-relaxed text-ink-2">
+              And if the film is not enough, the unit is a short drive from most of
+              the belt. Come and stand next to it.
+            </p>
+            <div className="mt-7 flex flex-wrap gap-2.5">
+              <Link href="/quality" className="btn btn--primary">How we make it</Link>
+              <Link href="/contact" className="btn">Arrange a visit</Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
 
       {/* ═══════════════════════ THE BELT ═══════════════════════ */}
       <section className="section micron-grid">

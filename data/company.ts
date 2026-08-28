@@ -114,6 +114,18 @@ export const DRIVE_TIMES = [
   { place: "Mohali / Dera Bassi",   mins: 75,  km: 52 },
 ] as const;
 
+/* ————— homepage video block —————
+   Drop the file into /public/video/ and set `src`. Until then the block
+   renders a deliberate placeholder in the site's film motif.
+   Keep it short — 30 to 60 seconds of the line running beats three minutes
+   of anything else. A poster frame stops the block flashing black on load. */
+export const VIDEO = {
+  src: "",                        // e.g. "/video/mgm-line.mp4"
+  poster: "",                     // e.g. "/img/video-poster.webp"
+  label: "Inside the unit",
+  caption: "Barotiwala, Baddi",
+} as const;
+
 export const NAV = [
   {
     label: "Products",
