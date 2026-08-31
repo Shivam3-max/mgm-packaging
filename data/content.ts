@@ -125,10 +125,10 @@ export const FAQ_GROUPS = [
   {
     group: "Ordering",
     items: [
-      { q: "What is your minimum order?", a: `${SITE.moqKg} kg for stock sizes. A new custom size usually needs about 100 kg to be worth setting up, and a custom colour about 200 kg.` },
+      { q: "What is your minimum order?", a: `${SITE.moqKg} kg ${SITE.moqBasis}. That is the same whether it is a stock size or one cut specially for you — below it the setup costs more than the film.` },
       { q: "How do you quote — per bag or per kilogram?", a: "Per kilogram. That is how polyethylene is bought and sold at every stage, and it is the only unit that stays honest across sizes. Our calculator converts a per-kilogram rate into cost per bag for you." },
       { q: "How long does an order take?", a: `Stock sizes ${SITE.leadTimeStock}. Custom sizes ${SITE.leadTimeCustom}. Printed work ${SITE.leadTimePrinted}, because it includes a proof step.` },
-      { q: "What are your payment terms?", a: `${SITE.paymentTerms}. For established repeat customers we are flexible — talk to Sanjeev.` },
+      { q: "What are your payment terms?", a: `${SITE.paymentTermsShort} to start. Once we have traded a few times we extend credit of ${SITE.creditDays} — talk to Sanjeev about it.` },
     ],
   },
   {

@@ -24,6 +24,15 @@ Confirmed facts (taken from the brochure) are marked ✅ and need no action.
 | Brand navy | `#022F73` (sampled from the artwork) |
 | Brand lime | `#85B53D` (sampled from the artwork) |
 
+### ✅ Confirmed by the partners — August 2026
+
+| Fact | Value |
+|---|---|
+| Thickness range | 15 – 200 micron |
+| Flat width range | 3" – 58" |
+| Minimum order | 100 kg **per size** |
+| Payment terms | 50% advance, balance on delivery; credit up to 30–60 days for established accounts |
+
 ---
 
 ## ⚠️ Placeholders — please confirm
@@ -34,8 +43,6 @@ Confirmed facts (taken from the brochure) are marked ✅ and need no action.
 |---|---|---|
 | `founded` | 2018 | Appears in schema and lends credibility. |
 | `capacityKgDay` / `capacityTonnesMonth` | 1200 kg/day · 30 t/month | Shown on the home hero, about and downloads pages. "Two extruders, 1.2 tonnes a day" closes deals; "advanced technology" does not. |
-| `micronMin` / `micronMax` | 15 – 200 micron | **Constrains every calculator.** If the line cannot run 200 micron, the tools are offering something unquotable. |
-| `moqKg` | 50 kg | Quoted on every product page and in the FAQ. |
 
 ### Production
 
@@ -45,7 +52,6 @@ Confirmed facts (taken from the brochure) are marked ✅ and need no action.
 | `sealingMachines` | 4 |
 | `printingInHouse` | `true` |
 | `printColours` | 2 |
-| `maxBagWidthInch` | 40 inches |
 | `employees` | 20+ |
 
 ### Commercial
@@ -55,11 +61,19 @@ Confirmed facts (taken from the brochure) are marked ✅ and need no action.
 | `leadTimeStock` | 2–3 working days |
 | `leadTimeCustom` | 5–7 working days |
 | `leadTimePrinted` | 7–10 working days |
-| `paymentTerms` | 50% advance, balance against dispatch |
 | `freeDeliveryNote` | Free delivery across the BBN belt above 200 kg |
 | `deliveryRadiusKm` | 60 |
 | `workingHours` | Mon–Sat, 9:00 am – 7:00 pm |
 | `responseTime` | within 4 working hours |
+
+### ⚠️ One thing to confirm about payment terms
+
+The brief read *"50% advance and rest on delivery … payment terms 30 to 60 days max"*.
+That has been implemented as **both**: 50% advance with the balance on delivery to
+start, moving to 30–60 day credit for established accounts. If the intent was that
+30–60 day credit is the standard term for everyone, change `paymentTerms`,
+`paymentTermsShort` and `creditDays` in `data/company.ts` and the FAQ, downloads and
+capability sheet all follow.
 
 ### Partner responsibilities
 

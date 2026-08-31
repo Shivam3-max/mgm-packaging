@@ -193,7 +193,7 @@ export default function DownloadsPage() {
                   ["Products", "Plain, printed, zip lock, gusset, coloured, custom"],
                   ["Materials", "LDPE, LLDPE, HDPE"],
                   ["Thickness range", `${SITE.micronMin} – ${SITE.micronMax} micron`],
-                  ["Maximum flat width", `${SITE.maxBagWidthInch} inches`],
+                  ["Flat width range", `${SITE.minBagWidthInch}" – ${SITE.maxBagWidthInch}" (76 – 1473 mm)`],
                   ["Extrusion lines", `${SITE.extruders}`],
                   ["Sealing machines", `${SITE.sealingMachines}`],
                   ["Printing", `In-house, up to ${SITE.printColours} colours`],
@@ -212,9 +212,7 @@ export default function DownloadsPage() {
               <p className="spec spec--lime">Commercial</p>
               <dl className="mt-4 grid gap-3">
                 {[
-                  ["Minimum order", `${SITE.moqKg} kg (stock sizes)`],
-                  ["Custom size minimum", "≈ 100 kg"],
-                  ["Custom colour minimum", "≈ 200 kg"],
+                  ["Minimum order", `${SITE.moqKg} kg ${SITE.moqBasis}`],
                   ["Lead time — stock", SITE.leadTimeStock],
                   ["Lead time — custom", SITE.leadTimeCustom],
                   ["Lead time — printed", SITE.leadTimePrinted],

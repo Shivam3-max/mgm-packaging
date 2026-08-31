@@ -61,7 +61,7 @@ export const products: Product[] = [
       { label: "Bottom seal", note: "Fully fused weld, tested for peel rather than just eyeballed." },
     ],
     faq: [
-      { q: "What is the minimum order?", a: "50 kg for stock sizes. For a custom size we usually ask for 100 kg so the setup is worth running." },
+      { q: "What is the minimum order?", a: "100 kg per size — the same whether it is a stock size or one cut specially for you." },
       { q: "Can I get a sample before ordering?", a: "Yes — we send a free sample pack anywhere in the BBN belt, usually the same week." },
     ],
   },
@@ -76,7 +76,7 @@ export const products: Product[] = [
       "The bag is often the first physical thing a customer touches. A printed polybag turns a packing cost into a brand asset, and for e-commerce sellers it does double duty — logo on one side, care instructions or a returns note on the other.",
       "We print in-house, which matters for two reasons: your artwork does not sit in a queue at a third party, and if the registration drifts we stop the line rather than shipping it. Turnaround for printed stock is measured in days, not weeks.",
     ],
-    notFor: "Very small runs. Below about 100 kg the cylinder setup dominates the cost and a plain bag with a label is usually the cheaper answer — we will tell you so.",
+    notFor: "Very small runs. Our minimum is 100 kg per size, and near it the cylinder setup dominates the cost — a plain bag with a printed label is often the cheaper answer, and we will tell you so.",
     features: [
       { title: "In-house printing", body: "Up to two colours, printed on our own line. No third-party queue, no surprise lead times." },
       { title: "Artwork support", body: "Send a logo in almost any format — we will convert it, position it and send back a proof before we run anything." },
@@ -209,7 +209,7 @@ export const products: Product[] = [
       "Most packing lines run a stock bag that is close enough. Close enough has a cost: every inch of excess film is film you bought and will throw away, on every unit, forever. At meaningful volumes, sizing a bag properly pays for the setup within weeks.",
       "We run LD, LLD and HD film so the material can be chosen for the job rather than for what happens to be on the machine. Soft and clear, tough and puncture-resistant, or stiff and crinkly with a high strength-to-weight ratio — each has a right answer, and they are not interchangeable.",
     ],
-    notFor: "One-off small quantities. Setup only makes sense from about 100 kg — below that, buy a stock size.",
+    notFor: "One-off small quantities. Our minimum is 100 kg per size — below that the setup costs more than the film, and a stock size is the better buy.",
     features: [
       { title: "Any dimension", body: "Width and length cut to your product, with the seal and headspace allowance calculated in." },
       { title: "Three materials", body: "LD for softness and clarity, LLD for puncture resistance and downgauging, HD for stiffness at low weight." },
@@ -219,10 +219,10 @@ export const products: Product[] = [
     specs: [
       { label: "Materials", value: "LD, LLD, HD polyethylene" },
       { label: "Thickness", value: "15 – 200 micron (60 – 800 gauge)" },
-      { label: "Max width", value: 'Up to 40" flat width' },
+      { label: "Flat width", value: '3" to 58"' },
       { label: "Seal options", value: "Bottom seal, side seal, box bottom" },
       { label: "Setup", value: "One-time, retained for repeat orders" },
-      { label: "Minimum", value: "About 100 kg for a new custom size" },
+      { label: "Minimum", value: "100 kg per size" },
     ],
     sizes: [
       { size: '8" × 10"',  micron: "25 – 50",  use: "Stock — ships immediately" },
@@ -266,7 +266,7 @@ export const products: Product[] = [
       { label: "Standard colours", value: "Black, blue, green, red, pink, yellow, white" },
       { label: "Thickness", value: "25 – 150 micron (100 – 600 gauge)" },
       { label: "Opacity", value: "Tinted translucent to fully opaque" },
-      { label: "Custom colour", value: "Matched to a shade reference, from about 200 kg" },
+      { label: "Custom colour", value: "Matched to a shade reference, from 100 kg" },
       { label: "Print", value: "Up to 2 colours over the base" },
     ],
     sizes: [
@@ -282,7 +282,7 @@ export const products: Product[] = [
       { label: "Base film", note: "Still 100% virgin LLDPE underneath the colour." },
     ],
     faq: [
-      { q: "Can you match our exact brand colour?", a: "Send a shade reference and we will match it. Custom shades usually need about 200 kg to be worth compounding." },
+      { q: "Can you match our exact brand colour?", a: "Send a shade reference and we will match it, from our 100 kg per size minimum." },
       { q: "Does colour weaken the bag?", a: "Heavy pigment loading costs a little strength. At normal loadings the difference is not measurable in use — we will flag it if your specification pushes it." },
     ],
   },

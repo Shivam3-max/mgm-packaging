@@ -13,7 +13,6 @@ import { useEffect } from "react";
 export default function AutoSize() {
   const gl = useThree((s) => s.gl);
   const setSize = useThree((s) => s.setSize);
-  const camera = useThree((s) => s.camera);
 
   useEffect(() => {
     const canvas = gl.domElement;
@@ -30,15 +29,13 @@ export default function AutoSize() {
 
       // R3F's own store, so its viewport/raycaster stay in step
       setSize(width, height);
-      // and the renderer directly, in case the store update is debounced away
-      gl.setSize(width, height, false);
-      canvas.style.width = "100%";
-      canvas.style.height = "100%";
-      if ((camera as { isPerspectiveCamera?: boolean }).isPerspectiveCamera) {
-        const cam = camera as unknown as { aspect: number; updateProjectionMatrix: () => void };
-        cam.aspect = width / height;
-        cam.updateProjectionMatrix();
-      }
+      // and the renderer directly, in case the store update is debounced away.
+      // updateStyle is left on so three.js writes the canvas CSS itself —
+      // reaching in and setting element.style here is what the React compiler
+      // (rightly) objects to.
+      gl.setSize(width, height);
+      // the camera aspect and projection matrix are R3F's job — its own
+      // setSize above already recomputes them
     };
 
     apply();
@@ -55,7 +52,7 @@ export default function AutoSize() {
       cancelAnimationFrame(raf);
       window.clearTimeout(t);
     };
-  }, [gl, setSize, camera]);
+  }, [gl, setSize]);
 
   return null;
 }

@@ -247,7 +247,7 @@ export default async function ProductPage({
 
           <Reveal className="mt-10">
             <p className="spec text-center">
-              Minimum order {SITE.moqKg} kg · {SITE.leadTimeStock} for stock sizes ·{" "}
+              Minimum order {SITE.moqKg} kg {SITE.moqBasis} · {SITE.leadTimeStock} for stock sizes ·{" "}
               {SITE.freeDeliveryNote}
             </p>
           </Reveal>

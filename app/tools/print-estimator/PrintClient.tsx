@@ -38,7 +38,7 @@ export default function PrintClient() {
 
     const cylinders = colours * faces;
     const overCapacity = colours > SITE.printColours;
-    const belowSetup = totalKg < 100;
+    const belowSetup = totalKg < SITE.moqKg;
 
     return { bag, totalKg, printW, printL, areaIn2, inkedIn2, cylinders, overCapacity, belowSetup };
   }, [w, l, um, colours, faces, coverage, qty]);
@@ -149,11 +149,12 @@ export default function PrintClient() {
           {calc.belowSetup && (
             <div className="rounded-[var(--r-sm)] border p-4"
                  style={{ background: "var(--navy-wash)", borderColor: "color-mix(in srgb, var(--navy) 22%, transparent)" }}>
-              <p className="spec spec--navy">Probably not worth printing</p>
+              <p className="spec spec--navy">Below our minimum</p>
               <p className="mt-1.5 text-[.92rem] leading-relaxed text-ink-2">
-                At {num(calc.totalKg, 0)} kg the one-time cylinder cost dominates the job.
-                A plain bag with a printed label is usually cheaper below about 100 kg —
-                we will say so rather than take the order.
+                At {num(calc.totalKg, 0)} kg this is under our {SITE.moqKg} kg {SITE.moqBasis}
+                minimum, and near it the one-time cylinder cost dominates the job anyway.
+                A plain bag with a printed label is often the cheaper answer — we will say
+                so rather than take the order.
               </p>
             </div>
           )}

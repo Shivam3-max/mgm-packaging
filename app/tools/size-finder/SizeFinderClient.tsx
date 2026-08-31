@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import { useQuote } from "@/components/QuoteProvider";
 import { calcBag, num, num0 } from "@/lib/calc";
+import { SITE } from "@/data/company";
 
 const STOCK = [
   { w: 8, l: 10 }, { w: 10, l: 12 }, { w: 12, l: 16 }, { w: 14, l: 20 },
@@ -172,16 +173,30 @@ export default function SizeFinderClient() {
             {result.fits ? (
               <p className="mt-1.5 text-[.93rem] leading-relaxed text-ink-2">
                 <strong className="tnum text-ink">{result.fits.w}&quot; × {result.fits.l}&quot;</strong> would
-                fit and ships immediately. Going custom saves the difference on every piece —
-                worth it above roughly 100 kg.
+                fit and ships immediately. Going custom saves the difference on every
+                piece, from our {SITE.moqKg} kg {SITE.moqBasis} minimum.
               </p>
             ) : (
               <p className="mt-1.5 text-[.93rem] leading-relaxed text-ink-2">
-                Nothing in stock is large enough — this one needs a custom run.
-                Minimum is about 100 kg.
+                Nothing in stock is large enough — this one needs a custom run,
+                from {SITE.moqKg} kg {SITE.moqBasis}.
               </p>
             )}
           </div>
+
+          {(result.w < SITE.minBagWidthInch || result.w > SITE.maxBagWidthInch) && (
+            <div
+              className="rounded-[var(--r)] border p-4"
+              style={{ background: "var(--warn-wash)", borderColor: "color-mix(in srgb, var(--warn) 30%, transparent)" }}
+            >
+              <p className="spec" style={{ color: "var(--warn)" }}>Outside our width range</p>
+              <p className="mt-1.5 text-[.93rem] leading-relaxed text-ink-2">
+                We run flat widths from {SITE.minBagWidthInch}&quot; to {SITE.maxBagWidthInch}&quot;.
+                At {result.w}&quot; this one falls outside that — talk to us before you
+                specify it, because we would rather say so now than at quoting stage.
+              </p>
+            </div>
+          )}
 
           <div className="flex flex-wrap gap-2.5">
             <button

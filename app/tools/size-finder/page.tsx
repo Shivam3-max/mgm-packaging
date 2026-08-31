@@ -16,8 +16,8 @@ export default function Page() {
       lede="Most units are running a bag an inch or two larger than they need, and paying for that inch on every single piece. Measure the product, not the bag you buy today, and this will tell you what it should have been."
       aside={
         <ToolCTA
-          title="Custom sizes from about 100 kg"
-          body="Below that a stock size is usually the better buy. Above it, sizing properly pays for the setup within weeks."
+          title="Custom sizes from 100 kg per size"
+          body={'We run flat widths from 3" to 58", 15 to 200 micron. Below the minimum a stock size is the better buy; above it, sizing properly pays for itself within weeks.'}
         />
       }
       footnote={

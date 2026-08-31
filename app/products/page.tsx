@@ -82,7 +82,7 @@ export default function ProductsPage() {
           <Reveal className="mt-6">
             <p className="spec">
               All sizes are indicative. Custom dimensions from {SITE.micronMin} to {SITE.micronMax} micron,
-              up to {SITE.maxBagWidthInch}&quot; flat width.
+              in flat widths from {SITE.minBagWidthInch}&quot; to {SITE.maxBagWidthInch}&quot;.
             </p>
           </Reveal>
         </div>

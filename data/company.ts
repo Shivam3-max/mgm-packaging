@@ -48,7 +48,9 @@ export const SITE = {
     },
   ],
 
-  /* ASSUMED — confirm all of the following with the partners */
+  /* CONFIRMED by the partners (Aug 2026): micron range, size range, MOQ and
+     payment terms. Everything else in this block is still ASSUMED — see
+     ASSUMPTIONS.md. */
   founded: 2018,
   employees: "20+",
   capacityKgDay: 1200,
@@ -60,12 +62,16 @@ export const SITE = {
   printingInHouse: true,
   micronMin: 15,
   micronMax: 200,
-  maxBagWidthInch: 40,
-  moqKg: 50,
+  minBagWidthInch: 3,
+  maxBagWidthInch: 58,
+  moqKg: 100,
+  moqBasis: "per size",
   leadTimeStock: "2–3 working days",
   leadTimeCustom: "5–7 working days",
   leadTimePrinted: "7–10 working days",
-  paymentTerms: "50% advance, balance against dispatch",
+  paymentTerms: "50% advance, balance on delivery — credit up to 30–60 days for established accounts",
+  paymentTermsShort: "50% advance, balance on delivery",
+  creditDays: "30–60 days",
   deliveryRadiusKm: 60,
   freeDeliveryNote: "Free delivery across the BBN belt on orders above 200 kg",
   workingHours: "Monday to Saturday, 9:00 am – 7:00 pm",

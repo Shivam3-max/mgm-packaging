@@ -96,8 +96,8 @@ export default function AboutPage() {
             {[
               { v: <Counter to={SITE.capacityKgDay} suffix=" kg" />, l: "a day, across both lines" },
               { v: <Counter to={SITE.micronMax} suffix="µ" />, l: `maximum thickness (from ${SITE.micronMin}µ)` },
-              { v: <Counter to={SITE.maxBagWidthInch} suffix='"' />, l: "maximum flat width" },
-              { v: <Counter to={SITE.moqKg} suffix=" kg" />, l: "minimum order" },
+              { v: <Counter to={SITE.maxBagWidthInch} suffix='"' />, l: `flat width, from ${SITE.minBagWidthInch}"` },
+              { v: <Counter to={SITE.moqKg} suffix=" kg" />, l: `minimum order, ${SITE.moqBasis}` },
             ].map((s, i) => (
               <div key={i} className="card p-6">
                 <p className="display-md text-[2rem]" style={{ color: "var(--navy)" }}>{s.v}</p>

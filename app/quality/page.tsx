@@ -122,9 +122,9 @@ export default function QualityPage() {
                   ["Sealing machines", `${SITE.sealingMachines}`],
                   ["Printing", SITE.printingInHouse ? `In-house, up to ${SITE.printColours} colours` : "Outsourced"],
                   ["Thickness range", `${SITE.micronMin} – ${SITE.micronMax} micron`],
-                  ["Maximum flat width", `${SITE.maxBagWidthInch} inches`],
+                  ["Flat width range", `${SITE.minBagWidthInch}" – ${SITE.maxBagWidthInch}"`],
                   ["Daily capacity", `${SITE.capacityKgDay} kg`],
-                  ["Minimum order", `${SITE.moqKg} kg`],
+                  ["Minimum order", `${SITE.moqKg} kg ${SITE.moqBasis}`],
                 ].map(([k, v], i, arr) => (
                   <div
                     key={k}
