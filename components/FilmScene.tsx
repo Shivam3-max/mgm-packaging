@@ -3,6 +3,7 @@
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import useHostSize from "./useHostSize";
+import useInView from "./useInView";
 import * as THREE from "three";
 import AutoSize from "./AutoSize";
 
@@ -179,6 +180,7 @@ function Sheet({ reduced }: { reduced: boolean }) {
 export default function FilmScene({ reduced = false }: { reduced?: boolean }) {
   const host = useRef<HTMLDivElement>(null);
   const { w, h } = useHostSize(host);
+  const inView = useInView(host);
 
   return (
     <div ref={host} style={{ position: "absolute", inset: 0 }}>
@@ -188,7 +190,7 @@ export default function FilmScene({ reduced = false }: { reduced?: boolean }) {
       camera={{ position: [0, 0, 5.4], fov: 42 }}
       gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
       style={{ position: "absolute", inset: 0, width: w, height: h }}
-      frameloop={reduced ? "demand" : "always"}
+      frameloop={reduced ? "demand" : inView ? "always" : "never"}
     >
       <AutoSize />
       <Sheet reduced={reduced} />

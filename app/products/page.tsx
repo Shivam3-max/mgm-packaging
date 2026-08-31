@@ -16,7 +16,7 @@ export default function ProductsPage() {
     <>
       <section className="section--tight pt-12 md:pt-16">
         <div className="wrap">
-          <Reveal>
+          <Reveal immediate>
             <SectionHead
               eyebrow="The range"
               title="Six bags. Pick by what you're packing, not by what it's called."

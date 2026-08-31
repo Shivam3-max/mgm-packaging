@@ -27,6 +27,23 @@ compliance, why-LLDPE, about, contact, FAQ, downloads, RFQ and samples.
 | `components/ProcessScene.tsx` | WebGL particle morph: granule → film → bag. |
 | `components/BagScene.tsx` | WebGL inflated bag on product pages. |
 
+## Lead delivery — required before launch
+
+Every quote / sample / contact submission is POSTed as JSON to
+`process.env.MGM_WEBHOOK_URL` (see `app/api/enquiry/route.ts`).
+
+**If that variable is not set, enquiries are written to the server log only and
+nobody is notified.** The route logs a loud warning on every such submission.
+
+1. `cp .env.example .env.local` and set `MGM_WEBHOOK_URL` for local testing.
+2. On Vercel, set it under **Project → Settings → Environment Variables**.
+
+Any JSON-accepting endpoint works — a Zapier/Make/n8n hook or a Google Apps
+Script web app. A good hook: email both partners + append to a Google Sheet.
+
+The API responds `{ ok: true, delivered: <bool> }`; `delivered` is `false` when
+the webhook is missing or errored.
+
 ## The maths
 
 Polybags are sold by weight and used by the piece. `lib/calc.ts` uses the metric
@@ -52,7 +69,9 @@ unavailable, `prefers-reduced-motion` is set, or the device reports ≤2 cores:
 - **Quality sequence** → a stacked, readable process list
 - **Product bag** → the product photograph
 
-The 3D is the reward for good hardware, never the requirement.
+The 3D is the reward for good hardware, never the requirement. Each scene also
+parks its render loop (`frameloop="never"`) whenever its canvas scrolls out of
+view, via `useInView`, so an idle 3D section costs nothing.
 
 ## Note on lint
 

@@ -16,7 +16,7 @@ export default function IndustriesPage() {
     <>
       <section className="section--tight pt-12 md:pt-16">
         <div className="wrap">
-          <Reveal>
+          <Reveal immediate>
             <SectionHead
               eyebrow="Who we supply"
               title="Six industries, six different definitions of a good bag"

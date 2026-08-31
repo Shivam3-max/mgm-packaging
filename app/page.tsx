@@ -30,7 +30,7 @@ export default function Home() {
 
         <div className="wrap relative z-10 grid items-center gap-14 pb-16 pt-14 md:min-h-[clamp(560px,74vh,760px)] md:grid-cols-12 md:pb-24 md:pt-20">
           <div className="md:col-span-7 lg:col-span-6">
-            <Reveal className="grid gap-6">
+            <Reveal immediate className="grid gap-6">
               <p className="spec" style={{ color: "var(--lime)" }}>
                 Barotiwala · Baddi · Himachal Pradesh
               </p>

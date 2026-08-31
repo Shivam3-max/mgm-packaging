@@ -58,6 +58,23 @@ export default function EnquiryForm({ kind = "quote" }: { kind?: Kind }) {
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
+
+    // Same rule the API enforces, checked here first so a mistyped number is
+    // caught instantly instead of after a round trip.
+    if (form.name.trim().length < 2) {
+      setError("Please tell us your name.");
+      return;
+    }
+    const localTen = form.phone.replace(/\D/g, "").slice(-10);
+    if (!/^[6-9]\d{9}$/.test(localTen)) {
+      setError("Please enter a valid 10-digit mobile number so we can call you back.");
+      return;
+    }
+    if (form.email && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(form.email.trim())) {
+      setError("That email address doesn't look right.");
+      return;
+    }
+
     setState("sending");
     setError(null);
     try {
@@ -152,8 +169,9 @@ export default function EnquiryForm({ kind = "quote" }: { kind?: Kind }) {
         </div>
         <div className="field">
           <label className="label" htmlFor="f-phone">Mobile number *</label>
-          <input id="f-phone" required type="tel" inputMode="tel" className="input tnum"
-                 value={form.phone} onChange={set("phone")} placeholder="10-digit mobile" autoComplete="tel" />
+          <input id="f-phone" required type="tel" inputMode="tel" maxLength={16} className="input tnum"
+                 value={form.phone} onChange={set("phone")} placeholder="10-digit mobile" autoComplete="tel"
+                 aria-invalid={error?.includes("mobile") || undefined} />
         </div>
         <div className="field">
           <label className="label" htmlFor="f-email">Email</label>

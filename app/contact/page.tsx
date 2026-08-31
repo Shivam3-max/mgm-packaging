@@ -21,7 +21,7 @@ export default function ContactPage() {
     <>
       <section className="section--tight pt-12 md:pt-16">
         <div className="wrap">
-          <Reveal className="grid gap-3.5">
+          <Reveal immediate className="grid gap-3.5">
             <p className="spec spec--lime">Contact</p>
             <h1 className="display text-[clamp(2.1rem,5vw,3.4rem)]">
               Both partners answer their own phones.

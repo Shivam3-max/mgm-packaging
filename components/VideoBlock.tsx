@@ -58,6 +58,14 @@ export default function VideoBlock({
 }) {
   const video = useRef<HTMLVideoElement>(null);
   const [started, setStarted] = useState(false);
+  const [failed, setFailed] = useState(false);
+
+  // The block sits high on the page, so nothing about the video is fetched
+  // until the visitor actually asks for it — the poster carries the section
+  // on its own. When there is no poster, nudging the media fragment past
+  // frame zero at least gets the browser to paint the first frame.
+  const needsMetadata = !poster;
+  const videoSrc = src && !poster ? `${src}#t=0.1` : src;
 
   const shell =
     "relative overflow-hidden rounded-[var(--r)] border border-hairline bg-[var(--navy-deep)]";
@@ -66,22 +74,23 @@ export default function VideoBlock({
     <figure className="film-stack">
       <div className="film-stack-inner overflow-hidden">
         <div className={`${shell} group aspect-video`}>
-          {src ? (
+          {src && !failed ? (
             <>
               <video
                 ref={video}
-                src={src}
+                src={videoSrc}
                 poster={poster}
                 controls={started}
                 playsInline
-                preload="metadata"
+                preload={needsMetadata ? "metadata" : "none"}
                 className="h-full w-full object-cover"
                 onPlay={() => setStarted(true)}
+                onError={() => setFailed(true)}
               />
               {!started && (
                 <button
                   onClick={() => {
-                    video.current?.play();
+                    void video.current?.play();
                     setStarted(true);
                   }}
                   className="absolute inset-0 grid place-items-center"

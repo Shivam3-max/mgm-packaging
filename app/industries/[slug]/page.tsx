@@ -38,7 +38,7 @@ export default async function IndustryPage({
     <>
       <section className="section--tight pt-10 md:pt-14">
         <div className="wrap grid gap-10 lg:grid-cols-12 lg:items-start">
-          <Reveal className="lg:col-span-7">
+          <Reveal immediate className="lg:col-span-7">
             <nav aria-label="Breadcrumb" className="spec mb-5">
               <Link href="/industries" className="hover:text-[var(--navy)]">Industries</Link>
               <span className="px-2 text-ink-4">/</span>

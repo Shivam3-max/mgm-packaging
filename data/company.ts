@@ -120,8 +120,8 @@ export const DRIVE_TIMES = [
    Keep it short — 30 to 60 seconds of the line running beats three minutes
    of anything else. A poster frame stops the block flashing black on load. */
 export const VIDEO = {
-  src: "",                        // e.g. "/video/mgm-line.mp4"
-  poster: "",                     // e.g. "/img/video-poster.webp"
+  src: "/video/Pollybag.mp4",     // e.g. "/video/mgm-line.mp4"
+  poster: "/img/video-poster.webp",
   label: "Inside the unit",
   caption: "Barotiwala, Baddi",
 } as const;

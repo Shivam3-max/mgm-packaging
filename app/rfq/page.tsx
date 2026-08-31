@@ -22,7 +22,7 @@ export default function RFQPage() {
     <>
       <section className="section--tight pt-12 md:pt-16">
         <div className="wrap">
-          <Reveal className="grid gap-3.5">
+          <Reveal immediate className="grid gap-3.5">
             <p className="spec spec--lime">Request a quote</p>
             <h1 className="display text-[clamp(2.1rem,5vw,3.4rem)]">
               One enquiry. Every line you need.

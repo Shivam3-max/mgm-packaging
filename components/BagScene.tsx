@@ -5,6 +5,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 import AutoSize from "./AutoSize";
 import useHostSize from "./useHostSize";
+import useInView from "./useInView";
 
 /* ============================================================================
    A polybag, built the way a polybag is actually made.
@@ -441,6 +442,7 @@ export default function BagScene({ preset = "plain" }: { preset?: string }) {
   const drag = useRef<{ x: number; base: number } | null>(null);
   const host = useRef<HTMLDivElement>(null);
   const { w, h } = useHostSize(host);
+  const inView = useInView(host);
 
   return (
     <div
@@ -463,6 +465,7 @@ export default function BagScene({ preset = "plain" }: { preset?: string }) {
           camera={{ position: [0, 0.05, 5.3], fov: 40 }}
           gl={{ antialias: true, alpha: true }}
           style={{ width: w, height: h }}
+          frameloop={inView ? "always" : "never"}
         >
           <AutoSize />
           <Shadow cfg={cfg} />

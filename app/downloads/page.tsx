@@ -37,7 +37,7 @@ export default function DownloadsPage() {
     <>
       <section className="section--tight pt-12 md:pt-16">
         <div className="wrap">
-          <Reveal>
+          <Reveal immediate>
             <SectionHead
               eyebrow="Reference sheets"
               title="The four tables worth pinning above a packing bench"

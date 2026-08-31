@@ -28,7 +28,7 @@ export default function CompliancePage() {
     <>
       <section className="section--tight pt-12 md:pt-16">
         <div className="wrap">
-          <Reveal>
+          <Reveal immediate>
             <SectionHead
               eyebrow="Plastic rules, explained"
               title="No, the 120-micron rule almost certainly doesn't apply to your bags."

@@ -29,7 +29,7 @@ export default function WhyLLDPE() {
     <>
       <section className="section--tight pt-12 md:pt-16">
         <div className="wrap grid gap-10 lg:grid-cols-12 lg:items-start">
-          <Reveal className="lg:col-span-7">
+          <Reveal immediate className="lg:col-span-7">
             <SectionHead
               eyebrow="The material"
               title="LDPE, LLDPE, HDPE — and which one your packing actually needs"

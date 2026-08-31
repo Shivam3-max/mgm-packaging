@@ -37,7 +37,7 @@ export default function AboutPage() {
     <>
       <section className="section--tight pt-12 md:pt-16">
         <div className="wrap grid gap-10 lg:grid-cols-12 lg:items-start">
-          <Reveal className="lg:col-span-7">
+          <Reveal immediate className="lg:col-span-7">
             <SectionHead
               eyebrow="About"
               title="A polybag unit in Barotiwala, run by the two people who answer the phone"

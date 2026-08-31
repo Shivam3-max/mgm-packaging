@@ -22,7 +22,7 @@ export default function SamplesPage() {
     <>
       <section className="section--tight pt-12 md:pt-16">
         <div className="wrap grid gap-10 lg:grid-cols-12 lg:items-start">
-          <Reveal className="lg:col-span-7">
+          <Reveal immediate className="lg:col-span-7">
             <p className="spec spec--lime">Free samples</p>
             <h1 className="display mt-3 text-[clamp(2.1rem,5vw,3.4rem)]">
               Hold the bag before you buy a hundred kilos of it.

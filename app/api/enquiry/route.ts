@@ -39,6 +39,16 @@ function bad(msg: string) {
   return NextResponse.json({ ok: false, error: msg }, { status: 400 });
 }
 
+const WEBHOOK = process.env.MGM_WEBHOOK_URL;
+
+if (!WEBHOOK) {
+  console.warn(
+    "\n[MGM enquiry] ⚠  MGM_WEBHOOK_URL is not set — enquiries will be written to\n" +
+      "             this log only and nobody will be notified. Set it before\n" +
+      "             launch (see .env.example).\n"
+  );
+}
+
 export async function POST(req: Request) {
   let body: EnquiryPayload;
   try {
@@ -74,19 +84,36 @@ export async function POST(req: Request) {
   console.info("[MGM enquiry]", JSON.stringify(record, null, 2));
 
   // 3 — forward if a hook is configured
-  const hook = process.env.MGM_WEBHOOK_URL;
-  if (hook) {
+  let delivered = false;
+  if (WEBHOOK) {
     try {
-      await fetch(hook, {
+      const res = await fetch(WEBHOOK, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(record),
+        signal: AbortSignal.timeout(8000),
       });
+      delivered = res.ok;
+      if (!res.ok) {
+        console.error(
+          `[MGM enquiry] ⚠  webhook responded ${res.status} — enquiry from ` +
+            `${record.name} (${record.phone}) is in this log only.`
+        );
+      }
     } catch (err) {
       // the enquiry is already logged; don't fail the visitor's submission
-      console.error("[MGM enquiry] webhook failed:", err);
+      console.error(
+        `[MGM enquiry] ⚠  webhook call failed — enquiry from ${record.name} ` +
+          `(${record.phone}) is in this log only.`,
+        err
+      );
     }
+  } else {
+    console.error(
+      `[MGM enquiry] ⚠  no MGM_WEBHOOK_URL — enquiry from ${record.name} ` +
+        `(${record.phone}) is in this log only and nobody was notified.`
+    );
   }
 
-  return NextResponse.json({ ok: true, forwarded: Boolean(hook) });
+  return NextResponse.json({ ok: true, delivered });
 }

@@ -46,7 +46,7 @@ export default async function ProductPage({
       {/* ═══════════ HEAD ═══════════ */}
       <section className="section--tight pt-10 md:pt-14">
         <div className="wrap">
-          <Reveal className="grid gap-10 lg:grid-cols-12 lg:items-start">
+          <Reveal immediate className="grid gap-10 lg:grid-cols-12 lg:items-start">
             <div className="lg:col-span-7">
               <nav aria-label="Breadcrumb" className="spec mb-5">
                 <Link href="/products" className="hover:text-[var(--navy)]">Products</Link>

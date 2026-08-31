@@ -54,7 +54,7 @@ export default function ToolsPage() {
     <>
       <section className="section--tight pt-12 md:pt-16">
         <div className="wrap">
-          <Reveal>
+          <Reveal immediate>
             <SectionHead
               eyebrow="Buyer tools"
               title="Six calculators that do the arithmetic buyers actually have to do"

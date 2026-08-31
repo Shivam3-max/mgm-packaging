@@ -27,7 +27,7 @@ export default function ToolShell({
             <span className="px-2 text-ink-4">/</span>
             <span className="text-ink-3">{eyebrow}</span>
           </nav>
-          <Reveal className="grid gap-3.5">
+          <Reveal immediate className="grid gap-3.5">
             <p className="spec spec--lime">{eyebrow}</p>
             <h1 className="display text-[clamp(2rem,4.6vw,3.2rem)]">{title}</h1>
             <p className="measure text-[1.04rem] leading-relaxed text-ink-2">{lede}</p>

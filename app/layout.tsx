@@ -44,12 +44,22 @@ export const metadata: Metadata = {
     "zip lock bags Himachal", "gusset bags manufacturer", "printed polybags India",
     "pharmaceutical polybags Baddi", "custom size polybags",
   ],
+  alternates: {
+    // Relative canonical resolves against metadataBase + the current path, so
+    // every route gets a correct self-referencing canonical URL.
+    canonical: "./",
+  },
   openGraph: {
     title: `${SITE.name} — LLDPE Polybags`,
     description: `${SITE.taglineShort} LLDPE polybags manufactured inside the Baddi industrial belt.`,
     type: "website",
     locale: "en_IN",
     siteName: SITE.name,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${SITE.name} — LLDPE Polybags`,
+    description: `${SITE.taglineShort} LLDPE polybags manufactured inside the Baddi industrial belt.`,
   },
   robots: { index: true, follow: true },
 };

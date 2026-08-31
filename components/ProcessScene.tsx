@@ -5,6 +5,7 @@ import { useMemo, useRef } from "react";
 import useHostSize from "./useHostSize";
 import * as THREE from "three";
 import AutoSize from "./AutoSize";
+import useInView from "./useInView";
 
 /* ============================================================================
    Granule to gusset, as one continuous body of material.
@@ -187,6 +188,7 @@ export default function ProcessScene({
 }: { progressRef: React.RefObject<number> }) {
   const host = useRef<HTMLDivElement>(null);
   const { w, h } = useHostSize(host);
+  const inView = useInView(host);
 
   return (
     <div ref={host} style={{ position: "absolute", inset: 0 }}>
@@ -196,6 +198,7 @@ export default function ProcessScene({
       camera={{ position: [0, 0, 6.2], fov: 44 }}
       gl={{ antialias: true, alpha: true }}
       style={{ position: "absolute", inset: 0, width: w, height: h }}
+      frameloop={inView ? "always" : "never"}
     >
       <AutoSize />
       <Cloud progressRef={progressRef} />

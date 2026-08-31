@@ -34,7 +34,7 @@ export default function FAQPage() {
 
       <section className="section--tight pt-12 md:pt-16">
         <div className="wrap">
-          <Reveal>
+          <Reveal immediate>
             <SectionHead
               eyebrow="Buyer FAQ"
               title="The questions we get asked before every first order"
