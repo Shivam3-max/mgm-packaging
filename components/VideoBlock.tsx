@@ -154,12 +154,10 @@ export default function VideoBlock({
               {showManualPoster && !manual && (
                 <button
                   onClick={() => {
-                    const v = video.current;
-                    if (!v) return;
-                    v.muted = false;
-                    setMuted(false);
+                    // Play muted by default; the visitor unmutes from the
+                    // native controls that appear once it is running.
                     setManual(true);
-                    void v.play().catch(() => {});
+                    void video.current?.play().catch(() => {});
                   }}
                   className="absolute inset-0 grid place-items-center"
                   style={{ background: "rgba(1,20,50,.34)" }}
