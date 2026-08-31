@@ -75,10 +75,10 @@ view, via `useInView`, so an idle 3D section costs nothing.
 
 ## Note on lint
 
-Six `react-hooks/set-state-in-effect` warnings remain in
-`FilmHero`, `BagAnatomy`, `ProcessSequence`, `Counter`, `Header` and
-`QuoteProvider`. All six are the canonical SSR-safe pattern for reading a
-browser-only value (WebGL support, reduced-motion, scroll position,
+A handful of `react-hooks/set-state-in-effect` warnings remain in
+`FilmHero`, `BagAnatomy`, `ProcessSequence`, `Counter`, `Header`,
+`QuoteProvider` and `VideoBlock`. All are the canonical SSR-safe pattern for
+reading a browser-only value (WebGL support, reduced-motion, scroll position,
 localStorage) after mount. They are intentional.
 
 ## Responsive
